@@ -1,0 +1,26 @@
+{
+    "l10n" : "RU",
+    "signIn" : "Sign in",
+    "signUp" : "Sign up",
+    "login" : "Login",
+    "password" : "Password",
+    "enterButton" : "Enter",
+    "fullName" : "Full name",
+    "phoneNumber" : "Phone number",
+    "nextButton" : "Next",
+    "create" : "Create",
+    "logAndPass" : "login and password",
+    "confirmPassword" : "Confirm password",
+    
+    "discover" : "Discover",
+    "newMatches" : "New Matches",
+    "viewMore" : "View more",
+    "yourDates" : "Your Dates",
+    "nearYou" : "Near you",
+
+    "myProfile" : "My Profile",
+    "likesYou" : "Likes you",
+    "matches" : "Matches",
+    "dates" : "Dates"
+
+}

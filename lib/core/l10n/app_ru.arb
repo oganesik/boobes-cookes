@@ -1,0 +1,26 @@
+{
+    "l10n" : "EN",
+    "signIn" : "Вход",
+    "signUp" : "Регистрация",
+    "login" : "Логин",
+    "password" : "Пароль",
+    "enterButton" : "Войти",
+    "fullName" : "ФИО",
+    "phoneNumber" : "Номер телефона",
+    "nextButton" : "Далее",
+    "create" : "Придумайте",
+    "logAndPass" : "логин и пароль",
+    "confirmPassword" : "Подтвердите пароль",
+      
+    "discover" : "Discover",
+    "newMatches" : "New Matches",
+    "viewMore" : "View more",
+    "yourDates" : "Your Dates",
+    "nearYou" : "Near you",
+
+    "myProfile" : "My Profile",
+    "likesYou" : "Likes you",
+    "matches" : "Matches",
+    "dates" : "Dates"
+
+}
