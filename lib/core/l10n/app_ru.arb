@@ -12,15 +12,16 @@
     "logAndPass" : "логин и пароль",
     "confirmPassword" : "Подтвердите пароль",
       
-    "discover" : "Discover",
-    "newMatches" : "New Matches",
-    "viewMore" : "View more",
-    "yourDates" : "Your Dates",
-    "nearYou" : "Near you",
+    
+    "discover": "Поиск",
+    "newMatches": "Новые знакомства",
+    "viewMore": "Посмотреть больше",
+    "yourDates": "Ваши свидания",
+    "nearYou": "Рядом с вами",
 
-    "myProfile" : "My Profile",
-    "likesYou" : "Likes you",
-    "matches" : "Matches",
-    "dates" : "Dates"
+    "myProfile": "Мой профиль",
+    "likesYou": "Вам нравятся",
+    "matches": "Совпадения",
+    "dates": "Свидания"
 
 }

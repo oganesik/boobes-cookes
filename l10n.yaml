@@ -1,0 +1,4 @@
+arb-dir: lib/core/l10n # Директория, где хранятся файлы переводов
+template-arb-file: app_en.arb # Файл-шаблон, где описываются параметры строк
+output-localization-file: app_localizations.dart # Сгенерированный файл локализации
+nullable-getter: false # Доступ к строкам можно получить через no-nullable-метод of(context)
