@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_const
 
+import 'package:boobescookes/core/themes/theme.dart';
+import 'package:boobescookes/features/near_you/ui/components/app_button.dart';
 import 'package:flutter/material.dart';
 
 class NearYouPage extends StatelessWidget {
@@ -19,25 +21,12 @@ class NearYouPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                      height: 48,
-                      width: 48,
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color.fromRGBO(31, 31, 33, 1),
-                            offset: Offset(2, 3),
-                          )
-                        ],
-                        color: Colors.white,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(8)),
-                        border: Border.all(
-                          color: const Color.fromRGBO(31, 31, 33, 1),
-                          width: 1,
-                        ),
-                      ),
-                      child: const Icon(Icons.arrow_back_rounded)),
+                  const AppButton(
+                      borderRadius: 8,
+                      buttonSize: 48,
+                      iconColor: AppColors.lightDark,
+                      icon: Icons.arrow_back_rounded,
+                      offset: Offset(2, 3)),
                   const Text(
                     "Near You",
                     style: TextStyle(
@@ -46,6 +35,12 @@ class NearYouPage extends StatelessWidget {
                       color: Color.fromRGBO(31, 31, 33, 1),
                     ),
                   ),
+                  const AppButton(
+                      borderRadius: 8,
+                      buttonSize: 48,
+                      iconColor: AppColors.lightDark,
+                      icon: Icons.notes_rounded,
+                      offset: Offset(2, 3)),
                   Container(
                       height: 48,
                       width: 48,
@@ -56,7 +51,7 @@ class NearYouPage extends StatelessWidget {
                             offset: Offset(2, 3),
                           )
                         ],
-                        color: Color.fromRGBO(220, 255, 162, 1),
+                        color: const Color.fromRGBO(220, 255, 162, 1),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(8)),
                         border: Border.all(
@@ -131,7 +126,7 @@ class NearYouPage extends StatelessWidget {
                                     border: Border.all(
                                       color:
                                           const Color.fromRGBO(31, 31, 33, 1),
-                                      width: 1.5,
+                                      width: 2,
                                     ),
                                   ),
                                   child: const Icon(
@@ -159,7 +154,7 @@ class NearYouPage extends StatelessWidget {
                                     border: Border.all(
                                       color:
                                           const Color.fromRGBO(31, 31, 33, 1),
-                                      width: 1.5,
+                                      width: 2,
                                     ),
                                   ),
                                   child: const Icon(
@@ -258,7 +253,7 @@ class NearYouPage extends StatelessWidget {
                       borderRadius: const BorderRadius.all(Radius.circular(12)),
                       border: Border.all(
                         color: const Color.fromRGBO(31, 31, 33, 1),
-                        width: 1.5,
+                        width: 2,
                       ),
                     ),
                     child: const Icon(
