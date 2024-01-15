@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       supportedLocales: AllLocale.all,
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -28,3 +29,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
