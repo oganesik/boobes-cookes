@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ],
       theme: createLightTheme(),
       title: 'Flutter Demo',
-      home: const Discover(),
+      home: const NearYouPage(),
     );
   }
 }
