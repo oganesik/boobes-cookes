@@ -10,7 +10,8 @@ class AppButton extends StatelessWidget {
   final Offset offset;
   final double? spreadRadius;
   final BoxShape? shape;
-  final double? borderRadius;
+  final BorderRadiusGeometry? borderRadius;
+  final double? borderWidth;
 
   const AppButton(
       {super.key,
@@ -22,7 +23,8 @@ class AppButton extends StatelessWidget {
       required this.offset,
       this.spreadRadius,
       this.shape,
-      this.borderRadius});
+      this.borderRadius,
+      this.borderWidth});
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +43,10 @@ class AppButton extends StatelessWidget {
             )
           ],
           shape: shape ?? BoxShape.rectangle,
-          borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 12)),
+          borderRadius: borderRadius,
           border: Border.all(
             color: AppColors.lightDark,
-            width: 1,
+            width: borderWidth ?? 1,
           ),
         ),
         child: Icon(

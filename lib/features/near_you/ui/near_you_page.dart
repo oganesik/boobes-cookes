@@ -4,8 +4,15 @@ import 'package:boobescookes/core/themes/theme.dart';
 import 'package:boobescookes/features/near_you/ui/components/app_button.dart';
 import 'package:flutter/material.dart';
 
-class NearYouPage extends StatelessWidget {
+class NearYouPage extends StatefulWidget {
   const NearYouPage({super.key});
+
+  @override
+  State<NearYouPage> createState() => _NearYouPageState();
+}
+
+class _NearYouPageState extends State<NearYouPage> {
+  late OverlayEntry overlayEntry;
 
   @override
   Widget build(BuildContext context) {
@@ -15,19 +22,19 @@ class NearYouPage extends StatelessWidget {
           body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(24, 24, 24, 24),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const AppButton(
-                      borderRadius: 8,
+                  AppButton(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
                       buttonSize: 48,
                       iconColor: AppColors.lightDark,
                       icon: Icons.arrow_back_rounded,
                       offset: Offset(2, 3)),
-                  const Text(
+                  Text(
                     "Near You",
                     style: TextStyle(
                       fontSize: 28,
@@ -35,39 +42,18 @@ class NearYouPage extends StatelessWidget {
                       color: Color.fromRGBO(31, 31, 33, 1),
                     ),
                   ),
-                  const AppButton(
-                      borderRadius: 8,
+                  AppButton(
+                      backgroundColor: Color.fromRGBO(220, 255, 162, 1),
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
                       buttonSize: 48,
                       iconColor: AppColors.lightDark,
                       icon: Icons.notes_rounded,
                       offset: Offset(2, 3)),
-                  Container(
-                      height: 48,
-                      width: 48,
-                      decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color.fromRGBO(31, 31, 33, 1),
-                            offset: Offset(2, 3),
-                          )
-                        ],
-                        color: const Color.fromRGBO(220, 255, 162, 1),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(8)),
-                        border: Border.all(
-                          color: const Color.fromRGBO(31, 31, 33, 1),
-                          width: 1,
-                        ),
-                      ),
-                      child: const Icon(
-                        Icons.notes_rounded,
-                        color: Color.fromRGBO(31, 31, 33, 1),
-                      )),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(12, 0, 18, 0),
+              padding: const EdgeInsets.fromLTRB(12, 12, 18, 0),
               child: Container(
                 decoration: BoxDecoration(
                   boxShadow: const [
@@ -110,57 +96,35 @@ class NearYouPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  height: 80,
-                                  width: 80,
-                                  decoration: BoxDecoration(
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(31, 31, 33, 1),
-                                        offset: Offset(4, 4),
-                                      )
-                                    ],
-                                    color: Colors.white,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(12)),
-                                    border: Border.all(
-                                      color:
-                                          const Color.fromRGBO(31, 31, 33, 1),
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: const Icon(
-                                    Icons.close_rounded,
-                                    size: 40,
-                                  ),
+                                const AppButton(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12)),
+                                  borderWidth: 2,
+                                  buttonSize: 80,
+                                  iconColor: AppColors.lightDark,
+                                  icon: Icons.close_rounded,
+                                  iconSize: 40,
+                                  offset: Offset(4, 4),
                                 ),
                                 const SizedBox(
                                   width: 30,
                                 ),
-                                Container(
-                                  height: 80,
-                                  width: 80,
-                                  decoration: BoxDecoration(
-                                    boxShadow: const [
-                                      BoxShadow(
-                                        color: Color.fromRGBO(31, 31, 33, 1),
-                                        offset: Offset(4, 4),
-                                      )
-                                    ],
-                                    color:
-                                        const Color.fromRGBO(255, 178, 233, 1),
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(12)),
-                                    border: Border.all(
-                                      color:
-                                          const Color.fromRGBO(31, 31, 33, 1),
-                                      width: 2,
-                                    ),
-                                  ),
-                                  child: const Icon(
-                                    color: Color.fromRGBO(238, 5, 173, 1),
-                                    Icons.favorite_rounded,
-                                    size: 35,
+                                GestureDetector(
+                                  onLongPress: () {
+                                    overlayEntry = createOverlayEntry(context);
+                                    Overlay.of(context)!.insert(overlayEntry);
+                                  },
+                                  child: const AppButton(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                    borderWidth: 2,
+                                    buttonSize: 80,
+                                    backgroundColor:
+                                        Color.fromRGBO(255, 178, 233, 1),
+                                    iconColor: Color.fromRGBO(238, 5, 173, 1),
+                                    icon: Icons.favorite_rounded,
+                                    iconSize: 35,
+                                    offset: Offset(4, 4),
                                   ),
                                 ),
                               ],
@@ -168,12 +132,12 @@ class NearYouPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
@@ -203,28 +167,15 @@ class NearYouPage extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                boxShadow: const [
-                                  BoxShadow(
-                                    color: Color.fromRGBO(31, 31, 33, 1),
-                                    spreadRadius: 0.5,
-                                    offset: Offset(1.5, 1.5),
-                                  )
-                                ],
-                                color: Colors.white,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: const Color.fromRGBO(31, 31, 33, 1),
-                                  width: 2,
-                                ),
-                              ),
-                              child: const Icon(
-                                Icons.arrow_downward_rounded,
-                                size: 23,
-                              ),
+                            AppButton(
+                              shape: BoxShape.circle,
+                              spreadRadius: 0.5,
+                              borderWidth: 2,
+                              buttonSize: 50,
+                              iconColor: AppColors.lightDark,
+                              icon: Icons.arrow_downward_rounded,
+                              iconSize: 23,
+                              offset: Offset(1.5, 1.5),
                             ),
                           ],
                         ),
@@ -238,105 +189,87 @@ class NearYouPage extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(24, 16, 24, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(31, 31, 33, 1),
-                          offset: Offset(4, 4),
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      border: Border.all(
-                        color: const Color.fromRGBO(31, 31, 33, 1),
-                        width: 2,
-                      ),
-                    ),
-                    child: const Icon(
-                      color: Color.fromRGBO(255, 33, 33, 1),
-                      Icons.bolt_rounded,
-                      size: 35,
-                    ),
-                  ),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(31, 31, 33, 1),
-                          offset: Offset(4, 4),
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      border: Border.all(
-                        color: const Color.fromRGBO(31, 31, 33, 1),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: const Icon(
-                      color: Color.fromRGBO(254, 153, 1, 1),
-                      Icons.star_rounded,
-                      size: 35,
-                    ),
-                  ),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(31, 31, 33, 1),
-                          offset: Offset(4, 4),
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      border: Border.all(
-                        color: const Color.fromRGBO(31, 31, 33, 1),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: const Icon(
-                      color: Color.fromRGBO(86, 184, 255, 1),
-                      Icons.forum_rounded,
-                      size: 30,
-                    ),
-                  ),
-                  Container(
-                    height: 70,
-                    width: 70,
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color.fromRGBO(31, 31, 33, 1),
-                          offset: Offset(4, 4),
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: const BorderRadius.all(Radius.circular(12)),
-                      border: Border.all(
-                        color: const Color.fromRGBO(31, 31, 33, 1),
-                        width: 1.5,
-                      ),
-                    ),
-                    child: const Icon(
-                      color: Color.fromRGBO(94, 194, 92, 1),
-                      Icons.card_giftcard_rounded,
-                      size: 30,
-                    ),
-                  ),
-                ],
+                children: [],
               ),
             ),
           ],
         ),
       )),
     );
+  }
+
+  OverlayEntry createOverlayEntry(BuildContext context) {
+    overlayEntry = OverlayEntry(
+      builder: (context) => Stack(
+        children: [
+          Positioned.fill(
+            child: Container(
+              color: Colors.black.withOpacity(0.25),
+              child: GestureDetector(
+                onTap: () {
+                  overlayEntry.remove();
+                },
+              ),
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.54,
+            left: MediaQuery.of(context).size.height * 0.275,
+            child: Column(
+              children: [
+                Container(
+                  height: 70,
+                  width: 70,
+                  decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(31, 31, 33, 1),
+                        offset: Offset(4, 4),
+                      )
+                    ],
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    border: Border.all(
+                      color: const Color.fromRGBO(31, 31, 33, 1),
+                      width: 2,
+                    ),
+                  ),
+                  child: const Icon(
+                    color: Color.fromRGBO(255, 33, 33, 1),
+                    Icons.bolt_rounded,
+                    size: 35,
+                  ),
+                ),
+                SizedBox(height: 120.0),
+                Container(
+                  height: 70,
+                  width: 70,
+                  decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromRGBO(31, 31, 33, 1),
+                        offset: Offset(4, 4),
+                      )
+                    ],
+                    color: Colors.white,
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
+                    border: Border.all(
+                      color: const Color.fromRGBO(31, 31, 33, 1),
+                      width: 1.5,
+                    ),
+                  ),
+                  child: const Icon(
+                    color: Color.fromRGBO(254, 153, 1, 1),
+                    Icons.star_rounded,
+                    size: 35,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+    return overlayEntry;
   }
 }
