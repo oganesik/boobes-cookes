@@ -15,7 +15,7 @@ abstract class AppColors {
   static const lightGrey = Color(0xFF5d5d5d);
 
   static const lighterDark = Color(0xFF272727);
-  static const lightDark = Color(0xFF1b1b1b);
+  static const lightDark = Color.fromARGB(255, 31, 31, 33);
 
   static const purpleAccent = Colors.purpleAccent;
 }

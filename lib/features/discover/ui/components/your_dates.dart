@@ -1,3 +1,4 @@
+import 'package:boobescookes/core/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 class YourDates extends StatelessWidget {
@@ -28,13 +29,16 @@ class YourDates extends StatelessWidget {
         decoration: BoxDecoration(
             boxShadow: const [
               BoxShadow(
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: AppColors.lightDark,
                 spreadRadius: 0,
                 blurRadius: 0,
                 offset: Offset(8, 8), // changes position of shadow
               ),
             ],
-            border: Border.all(color: Colors.black, width: 1),
+            border: Border.all(
+              color: AppColors.lightDark,
+              width: 1,
+            ),
             color: backgroungColor,
             borderRadius: const BorderRadius.all(Radius.circular(6))),
         child: Column(
@@ -47,13 +51,13 @@ class YourDates extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: AppColors.lightDark,
                     spreadRadius: 0,
                     blurRadius: 0,
                     offset: Offset(2, 3), // changes position of shadow
                   ),
                 ],
-                color: Colors.black,
+                color: AppColors.lightDark,
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -66,9 +70,9 @@ class YourDates extends StatelessWidget {
             ),
             Text(
               "$name ${secondName.substring(0, 1)}, $age",
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
             Row(
@@ -77,7 +81,7 @@ class YourDates extends StatelessWidget {
                 const Icon(Icons.location_on, size: 14),
                 Text(
                   city,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 10,
                   ),
                 )
